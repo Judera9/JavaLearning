@@ -26,9 +26,11 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="ignore.virus.scanning.warn.message" value="true" />
+    <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
@@ -100,10 +102,15 @@
       <screen x="0" y="0" width="1289" height="859" />
     </state>
     <state x="154" y="73" key="SettingsEditor/0.0.1289.859@0.0.1289.859" timestamp="1610694391025" />
-    <state x="346" y="255" key="com.intellij.ide.util.TipDialog" timestamp="1615534135594">
-      <screen x="0" y="0" width="1289" height="859" />
+    <state x="416" y="259" key="com.intellij.ide.util.TipDialog" timestamp="1615708776183">
+      <screen x="0" y="0" width="1549" height="871" />
     </state>
     <state x="346" y="255" key="com.intellij.ide.util.TipDialog/0.0.1289.859@0.0.1289.859" timestamp="1615534135594" />
+    <state x="416" y="259" key="com.intellij.ide.util.TipDialog/0.0.1549.871@0.0.1549.871" timestamp="1615708776183" />
+    <state x="179" y="52" key="new project wizard" timestamp="1615708894370">
+      <screen x="0" y="0" width="1549" height="871" />
+    </state>
+    <state x="179" y="52" key="new project wizard/0.0.1549.871@0.0.1549.871" timestamp="1615708894370" />
     <state x="302" y="196" key="run.anything.popup" timestamp="1611125291453">
       <screen x="0" y="0" width="1289" height="859" />
     </state>
