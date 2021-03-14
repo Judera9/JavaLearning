@@ -1,15 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e442dcd8-1c75-4b99-8435-fea08f266426" name="Default Changelist" comment="" />
+    <list default="true" id="e442dcd8-1c75-4b99-8435-fea08f266426" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Homework/src/Ass2/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework/src/Ass2/tests.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rain.java" beforeDir="false" afterPath="$PROJECT_DIR$/Homework/src/Ass2/Rain.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="module-info" />
         <option value="Class" />
       </list>
     </option>
@@ -18,7 +39,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1myTxacUOCb7VXreIets2rrdTzN" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -32,9 +55,20 @@
     <property name="ignore.virus.scanning.warn.message" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
-  <component name="RunManager" selected="Application.Hailstone">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\AppData\Learning\Coding\JavaLearning\Homework\src\Ass2" />
+      <recent name="D:\AppData\Learning\Coding\JavaLearning\src" />
+      <recent name="D:\AppData\Learning\Coding\JavaLearning\LAB\src\IOStream" />
+      <recent name="D:\AppData\Learning\Coding\JavaLearning\Homework\src\Ass1" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Rain">
     <configuration name="Hailstone" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Hailstone" />
       <module name="Java" />
@@ -49,8 +83,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Rain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Ass2.Rain" />
+      <module name="Homework" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Ass2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Rain" />
         <item itemvalue="Application.Hailstone" />
         <item itemvalue="Application.HelloWorld" />
       </list>
@@ -75,6 +123,7 @@
       <workItem from="1615359674839" duration="2157000" />
       <workItem from="1615534039796" duration="26000" />
       <workItem from="1615534134705" duration="554000" />
+      <workItem from="1615708775672" duration="15809000" />
     </task>
     <servers />
   </component>
@@ -82,26 +131,47 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1246" height="221" key="GridCell.Tab.0.bottom" timestamp="1611474757421">
-      <screen x="0" y="0" width="1289" height="859" />
+    <state width="1505" height="226" key="GridCell.Tab.0.bottom" timestamp="1615736727327">
+      <screen x="0" y="0" width="1549" height="871" />
     </state>
     <state width="1246" height="221" key="GridCell.Tab.0.bottom/0.0.1289.859@0.0.1289.859" timestamp="1611474757421" />
-    <state width="1246" height="221" key="GridCell.Tab.0.center" timestamp="1611474757421">
-      <screen x="0" y="0" width="1289" height="859" />
+    <state width="1505" height="226" key="GridCell.Tab.0.bottom/0.0.1549.871@0.0.1549.871" timestamp="1615736727327" />
+    <state width="1505" height="226" key="GridCell.Tab.0.center" timestamp="1615736727327">
+      <screen x="0" y="0" width="1549" height="871" />
     </state>
     <state width="1246" height="221" key="GridCell.Tab.0.center/0.0.1289.859@0.0.1289.859" timestamp="1611474757421" />
-    <state width="1246" height="221" key="GridCell.Tab.0.left" timestamp="1611474757421">
-      <screen x="0" y="0" width="1289" height="859" />
+    <state width="1505" height="226" key="GridCell.Tab.0.center/0.0.1549.871@0.0.1549.871" timestamp="1615736727327" />
+    <state width="1505" height="226" key="GridCell.Tab.0.left" timestamp="1615736727326">
+      <screen x="0" y="0" width="1549" height="871" />
     </state>
     <state width="1246" height="221" key="GridCell.Tab.0.left/0.0.1289.859@0.0.1289.859" timestamp="1611474757421" />
-    <state width="1246" height="221" key="GridCell.Tab.0.right" timestamp="1611474757421">
-      <screen x="0" y="0" width="1289" height="859" />
+    <state width="1505" height="226" key="GridCell.Tab.0.left/0.0.1549.871@0.0.1549.871" timestamp="1615736727326" />
+    <state width="1505" height="226" key="GridCell.Tab.0.right" timestamp="1615736727327">
+      <screen x="0" y="0" width="1549" height="871" />
     </state>
     <state width="1246" height="221" key="GridCell.Tab.0.right/0.0.1289.859@0.0.1289.859" timestamp="1611474757421" />
-    <state x="154" y="73" key="SettingsEditor" timestamp="1610694391025">
-      <screen x="0" y="0" width="1289" height="859" />
+    <state width="1505" height="226" key="GridCell.Tab.0.right/0.0.1549.871@0.0.1549.871" timestamp="1615736727327" />
+    <state width="1505" height="282" key="GridCell.Tab.1.bottom" timestamp="1615733931871">
+      <screen x="0" y="0" width="1549" height="871" />
+    </state>
+    <state width="1505" height="282" key="GridCell.Tab.1.bottom/0.0.1549.871@0.0.1549.871" timestamp="1615733931871" />
+    <state width="1505" height="282" key="GridCell.Tab.1.center" timestamp="1615733931871">
+      <screen x="0" y="0" width="1549" height="871" />
+    </state>
+    <state width="1505" height="282" key="GridCell.Tab.1.center/0.0.1549.871@0.0.1549.871" timestamp="1615733931871" />
+    <state width="1505" height="282" key="GridCell.Tab.1.left" timestamp="1615733931871">
+      <screen x="0" y="0" width="1549" height="871" />
+    </state>
+    <state width="1505" height="282" key="GridCell.Tab.1.left/0.0.1549.871@0.0.1549.871" timestamp="1615733931871" />
+    <state width="1505" height="282" key="GridCell.Tab.1.right" timestamp="1615733931871">
+      <screen x="0" y="0" width="1549" height="871" />
+    </state>
+    <state width="1505" height="282" key="GridCell.Tab.1.right/0.0.1549.871@0.0.1549.871" timestamp="1615733931871" />
+    <state x="185" y="27" key="SettingsEditor" timestamp="1615725775321">
+      <screen x="0" y="0" width="1549" height="871" />
     </state>
     <state x="154" y="73" key="SettingsEditor/0.0.1289.859@0.0.1289.859" timestamp="1610694391025" />
+    <state x="185" y="27" key="SettingsEditor/0.0.1549.871@0.0.1549.871" timestamp="1615725775321" />
     <state x="416" y="259" key="com.intellij.ide.util.TipDialog" timestamp="1615708776183">
       <screen x="0" y="0" width="1549" height="871" />
     </state>
@@ -115,5 +185,9 @@
       <screen x="0" y="0" width="1289" height="859" />
     </state>
     <state x="302" y="196" key="run.anything.popup/0.0.1289.859@0.0.1289.859" timestamp="1611125291453" />
+    <state x="436" y="183" width="672" height="678" key="search.everywhere.popup" timestamp="1615714863267">
+      <screen x="0" y="0" width="1549" height="871" />
+    </state>
+    <state x="436" y="183" width="672" height="678" key="search.everywhere.popup/0.0.1549.871@0.0.1549.871" timestamp="1615714863267" />
   </component>
 </project>
