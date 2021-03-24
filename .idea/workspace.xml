@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e442dcd8-1c75-4b99-8435-fea08f266426" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Homework/src/Ass2/readme.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Homework/src/Ass2/tests.txt" afterDir="false" />
+    <list default="true" id="e442dcd8-1c75-4b99-8435-fea08f266426" name="Default Changelist" comment="Add Week4 Package&#10;Add LinkedList ADT">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework/src/Ass2/moreTests.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rain.java" beforeDir="false" afterPath="$PROJECT_DIR$/Homework/src/Ass2/Rain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework/Homework.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Homework/Homework.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework/src/Ass2/Rain.java" beforeDir="false" afterPath="$PROJECT_DIR$/Homework/src/Ass2/Rain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework/src/Ass2/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Homework/src/Ass2/readme.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,9 +57,9 @@
     <property name="ignore.virus.scanning.warn.message" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
@@ -124,6 +126,7 @@
       <workItem from="1615534039796" duration="26000" />
       <workItem from="1615534134705" duration="554000" />
       <workItem from="1615708775672" duration="15809000" />
+      <workItem from="1616553514380" duration="2264000" />
     </task>
     <servers />
   </component>
@@ -131,6 +134,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="494" y="320" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1616552896399">
+      <screen x="0" y="0" width="1289" height="859" />
+    </state>
+    <state x="494" y="320" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1289.859@0.0.1289.859" timestamp="1616552896399" />
     <state width="1505" height="226" key="GridCell.Tab.0.bottom" timestamp="1615736727327">
       <screen x="0" y="0" width="1549" height="871" />
     </state>
@@ -167,16 +174,20 @@
       <screen x="0" y="0" width="1549" height="871" />
     </state>
     <state width="1505" height="282" key="GridCell.Tab.1.right/0.0.1549.871@0.0.1549.871" timestamp="1615733931871" />
-    <state x="185" y="27" key="SettingsEditor" timestamp="1615725775321">
-      <screen x="0" y="0" width="1549" height="871" />
+    <state x="154" y="11" key="SettingsEditor" timestamp="1616553295330">
+      <screen x="0" y="0" width="1289" height="859" />
     </state>
-    <state x="154" y="73" key="SettingsEditor/0.0.1289.859@0.0.1289.859" timestamp="1610694391025" />
+    <state x="154" y="11" key="SettingsEditor/0.0.1289.859@0.0.1289.859" timestamp="1616553295330" />
     <state x="185" y="27" key="SettingsEditor/0.0.1549.871@0.0.1549.871" timestamp="1615725775321" />
-    <state x="416" y="259" key="com.intellij.ide.util.TipDialog" timestamp="1615708776183">
-      <screen x="0" y="0" width="1549" height="871" />
+    <state x="346" y="255" key="com.intellij.ide.util.TipDialog" timestamp="1616553514207">
+      <screen x="0" y="0" width="1289" height="859" />
     </state>
-    <state x="346" y="255" key="com.intellij.ide.util.TipDialog/0.0.1289.859@0.0.1289.859" timestamp="1615534135594" />
+    <state x="346" y="255" key="com.intellij.ide.util.TipDialog/0.0.1289.859@0.0.1289.859" timestamp="1616553514207" />
     <state x="416" y="259" key="com.intellij.ide.util.TipDialog/0.0.1549.871@0.0.1549.871" timestamp="1615708776183" />
+    <state x="375" y="197" key="extract.method.dialog" timestamp="1616553471504">
+      <screen x="0" y="0" width="1289" height="859" />
+    </state>
+    <state x="375" y="197" key="extract.method.dialog/0.0.1289.859@0.0.1289.859" timestamp="1616553471504" />
     <state x="179" y="52" key="new project wizard" timestamp="1615708894370">
       <screen x="0" y="0" width="1549" height="871" />
     </state>

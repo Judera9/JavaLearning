@@ -5,14 +5,24 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Stack;
 
+/**
+ * Class Rain functions
+ *
+ * main(): run the program and use args to transmit tests
+ * findRain(int[] height): use stack to solve the problem
+ *
+ * readTests(String path): read the tests in the test files
+ * saveResults(int[] results, String path): save the results to a certain file [not using]
+ * printResults(int[] results): print the results of a single test file to std-io
+ */
 public class Rain {
     public static void main(String[] args) throws IOException {
         Rain rain = new Rain();
-        for (String arg : args) {
-            ArrayList<int[]> testList = rain.readTests(arg);
+        for (String arg : args) {  // a single arg represent a test file
+            ArrayList<int[]> testList = rain.readTests(arg);  // read all lines of tests in a single file
             int[] results = new int[testList.size()];
             for (int j = 0; j < testList.size(); j++)
-                results[j] = rain.findRain(testList.get(j));
+                results[j] = rain.findRain(testList.get(j));  // solve for each line of test
             rain.printResults(results);
             if (args.length > 1 && !arg.equals(args[args.length - 1])) {
                 System.out.println();
@@ -20,21 +30,28 @@ public class Rain {
         }
     }
 
-
+    /**
+     *
+     * @param height: the height of surfaces for this test
+     * @return: return the rain accumulated for this test
+     */
     public int findRain(int[] height) {
         if (height.length == 0) {
             return 0;
         }
 
-        Stack<Integer> puddleIndex = new Stack<>();
+        Stack<Integer> puddleIndex = new Stack<>();  // the usage of puddleIndex is like pointers in C/C++
         puddleIndex.push(0);
         int rainCount = 0;
         int index = 1;
 
         while (index < height.length) {
+
+            // if puddleIndex is empty, this means that left wall is not exist, so we should push a new height in stack
+            // if height[index] > height[puddleIndex.peek()], this means that the height is going upwards
             while (!puddleIndex.isEmpty() && index < height.length && height[index] > height[puddleIndex.peek()]) {
                 int puddleHeight = height[puddleIndex.pop()];
-                if (!puddleIndex.isEmpty()) {
+                if (!puddleIndex.isEmpty()) {  // if stack is not empty after pop, calculate rain caught at this floor
                     rainCount += (Math.min(height[puddleIndex.peek()], height[index]) - puddleHeight) * (index - puddleIndex.peek() - 1);
                 } else {
                     puddleIndex.push(index);
