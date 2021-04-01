@@ -32,10 +32,11 @@ public class MatrixProduction {
             return false;
 
         for (int i = 0; i < row2; i++) {
-            for (int j = 0; j < ; j++) {
-                
+            for (int j = 0; j < row1; j++) {
+
             }
         }
+        return false;
     }
 
     public void writeMatrix(String path, int[][] matrix) throws IOException {
