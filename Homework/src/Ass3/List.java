@@ -119,12 +119,49 @@ public class List {
     }
 
     //delete node, return true if succeeded, false if failed
-    public boolean deleteNode(ListNode node){
+    public boolean deleteNode(ListNode node) {
+        if (node == null) {
+            System.out.println("The node to delete is null!");
+            return false;
+        }
 
+        if (headListNode == null) {
+            System.out.println("The head node is null!");
+            return false;
+        }
+
+        ListNode tempNode = headListNode;
+        if (tempNode.equals(node)) { // the while loop ignore the head node
+            return true;
+        }
+        while (!tempNode.next.equals(node)) { // equals() method compare the address of two nodes
+            tempNode = tempNode.next;
+            if (tempNode.next == null) { // find all through the linked list but not find node
+                return false;
+            }
+        }
+
+        ListNode holder = tempNode.next.next; // hold the following node to prevent missing list
+        tempNode.next = null; // delete it thoroughly
+        tempNode.next = holder;
+
+        return true;
     }
 
     //delete node whose “val” equals to value, return true if succeeded, false if failed
-    public boolean deleteNode(int value)
+    public boolean deleteNode(int value) {
+        ListNode tempNode = headListNode;
+
+        while (tempNode.next != null) {
+            if (tempNode.next.val != value) {
+                tempNode = tempNode.next;
+            }else {
+                ListNode holder = tempNode.next.next; // hold the following node to prevent missing list
+                tempNode.next = null; // delete it thoroughly
+                tempNode.next = holder;
+            }
+        }
+    }
 
     //delete duplicated nodes from unsorted list
     public void deleteDuplicates()
