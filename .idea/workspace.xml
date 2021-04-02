@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e442dcd8-1c75-4b99-8435-fea08f266426" name="Default Changelist" comment="">
+    <list default="true" id="e442dcd8-1c75-4b99-8435-fea08f266426" name="Default Changelist" comment="Add Week4 Package&#10;Add LinkedList ADT">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Homework/src/Ass3/List.java" beforeDir="false" afterPath="$PROJECT_DIR$/Homework/src/Ass3/List.java" afterDir="false" />
     </list>
@@ -137,7 +137,7 @@
       <workItem from="1615534134705" duration="554000" />
       <workItem from="1615708775672" duration="15809000" />
       <workItem from="1616553514380" duration="2508000" />
-      <workItem from="1616567095575" duration="11550000" />
+      <workItem from="1616567095575" duration="14125000" />
     </task>
     <servers />
   </component>
