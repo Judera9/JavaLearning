@@ -38,6 +38,7 @@ public class List {
     // attribute sorted should be changed to 1
     public void sort() {
         sortList(headListNode);
+        this.sorted = 1;
     }
 
     // use merge sort to solve the sorting problem
@@ -86,9 +87,9 @@ public class List {
     // merge the sorted sublist together
     // return the head of the new list
     public ListNode merge(ListNode head, ListNode secondHead) {
-        // if (head == null || secondHead == null) {
-        // throw new Exception(">> merge has null input");
-        // }
+        if (head == null || secondHead == null) {
+            System.out.println(">> merge has null input");
+        }
 
         ListNode firstPoint = head;
         ListNode secondPoint = secondHead;
@@ -108,7 +109,7 @@ public class List {
 
             // using merge sort
             // sort and merge the two list together
-            if (firstPoint.val <= secondPoint.val) {
+            if (firstPoint.val >= secondPoint.val) {
                 if (newHead == null) {
                     newHead = firstPoint;
                     cur = firstPoint;
@@ -135,7 +136,41 @@ public class List {
     // reverse the order of nodes of list
     // attribute “sorted” should be changed if the list is sorted before
     public void reverse() {
+        reverseList(headListNode);
+        this.sorted = (-1) * sorted;
+    }
 
+    public ListNode reverseList(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        ListNode prev = head; // hold the pervious node
+        ListNode holder = head.next.next; // cut the relationship with the next node
+        ListNode buffer = head.next;
+
+        while (true) {
+            if (holder == null) {
+                if (prev == head) {
+                    prev.next = null;
+                }
+                buffer.next = prev;
+                prev = buffer;
+                break;
+            } else if (prev == head) {
+                prev.next = null; // cutoff relationship with the left nodes
+                buffer.next = prev; // make it to the head of out new list
+                prev = buffer;
+                buffer = holder; // move buffer to next nodes
+                holder = holder.next;
+            } else {
+                buffer.next = prev; // make it to the head of out new list
+                prev = buffer;
+                buffer = holder; // move buffer to next nodes
+                holder = holder.next;
+            }
+        }
+        return prev;
     }
 
     // add node to the tail of the list – basic method
@@ -209,7 +244,7 @@ public class List {
         return true;
     }
 
-    //delete node, return true if succeeded, false if failed
+    // delete node, return true if succeeded, false if failed
     public boolean deleteNode(ListNode node) {
         ListNode prevNode = null;
         ListNode judgingNode = headListNode;
@@ -218,46 +253,96 @@ public class List {
             if (status == 0) {
                 prevNode = judgingNode;
                 judgingNode = judgingNode.next;
-            } else return status == 1;
+            } else
+                return status == 1;
         }
     }
 
-    //delete node whose “val” equals to value, return true if succeeded, false if failed
+    // delete node whose “val” equals to value, return true if succeeded, false if
+    // failed
     public boolean deleteNode(int value) {
-        ListNode tempNode = headListNode;
+        removeElements(headListNode, value);
+    }
 
-        while (tempNode.next != null) {
-            if (tempNode.next.val != value) {
-                tempNode = tempNode.next;
+    public boolean removeElements(ListNode head, int val) {
+        if (head == null) {
+            return false;
+        }
+
+        boolean isDeleted = false;
+
+        // TODO: change the return value
+
+        ListNode cur = head;
+
+        while (true) {
+            if (head.next == null) { // note: 1 node condition
+                if (head.val == val) {
+                    // TODO: add sth here
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            if (cur.next == null) {
+                break;
+            }
+            if (head.val == val) { // note: assert cur = null
+                cur = cur.next;
+                head.next = null;
+                head = null;
+                head = cur;
+                continue;
+            }
+            if (cur.next.val == val) {
+                ListNode deleteNode = cur.next;
+                cur.next = deleteNode.next;
+                deleteNode = null;
             } else {
-                ListNode holder = tempNode.next.next; // hold the following node to prevent missing list
-                tempNode.next = null; // delete it thoroughly
-                tempNode.next = holder;
+                cur = cur.next;
             }
         }
+        return head;
     }
 
-    //delete duplicated nodes from unsorted list
-    public void deleteDuplicates()
+    // delete duplicated nodes from unsorted list
+    public void deleteDuplicates() {
+
+
+    }
 
     // return the value of the k-th node from the bottom
-    public int kthToLast(int k)
+    // note: k start from 1
+    public int kthToLast(int k) {
+        ListNode cur = headListNode;
+        for (int i = 0; i < k - 1; i++) {
+            cur = cur.next;
+        }
+        return cur.val;
+    }
 
     // return the sum of the linked list
-    public int sum()
+    public int sum() {
+        int sum = 0;
+        ListNode cur = headListNode;
+        while (cur != null) {
+            sum += cur.val;
+            cur = cur.next;
+        }
+        return sum;
+    }
 
     // merge two sorted lists and keep new list still sorted
-    public void mergeSortedList(List listToMerge)
+    public void mergeSortedList(List listToMerge) {
+        merge(this.headListNode, listToMerge.headListNode);
+    }
 
-
-    /* **self-method**
-      my thought is to consider three conditions
-     * 1.<null, notNull> the node to delete is the head
-     * 2.<notNull, judgingNode.next == null> return null
-     * 3.<notNull, notNull> delete it
-
-     returned value:
-     1-true 0-false -1 stop loop 2-wrong
+    /*
+     * **self-method** my thought is to consider three conditions 1.<null, notNull>
+     * the node to delete is the head 2.<notNull, judgingNode.next == null> return
+     * null 3.<notNull, notNull> delete it
+     *
+     * returned value: 1-true 0-false -1 stop loop 2-wrong
      */
     public int delete(ListNode prevNode, ListNode judgingNode, ListNode targetNode) {
         if (prevNode == null) { // this is for the 1st condition
