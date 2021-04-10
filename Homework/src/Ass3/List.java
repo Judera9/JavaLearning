@@ -1,6 +1,18 @@
-package Ass3;
+// package Ass3;
 
 public class List {
+    public static void main(String[] args) { // WARN: delete this test method at last
+        // test
+        ListNode node1 = new ListNode(1);
+        List list = new List(node1);
+        ListNode node2 = new ListNode(2);
+        node1.next = node2;
+        // ListNode node3 = new ListNode(3);
+        // node2.next = node3;
+        // ListNode node4 = new ListNode(4, node3);
+        // ListNode nullNode = new ListNode();
+        // System.out.println(list.kthToLast(1));
+    }
 
     /*
      * Given attributes and methods
@@ -8,7 +20,7 @@ public class List {
 
     public ListNode headListNode;
     private int size;
-    private int sorted;
+    private int sorted; // note: need to check sorted carefully
 
     public List() {
         headListNode = null;
@@ -30,9 +42,7 @@ public class List {
         return sorted; // 0-unsorted, 1-ascending, -1-descending
     }
 
-    /*
-     * New methods to insert
-     */
+    // note: New methods to insert below
 
     // sort the list ascending. Any sorting algorithm is fine.
     // attribute sorted should be changed to 1
@@ -109,7 +119,7 @@ public class List {
 
             // using merge sort
             // sort and merge the two list together
-            if (firstPoint.val >= secondPoint.val) {
+            if (firstPoint.val <= secondPoint.val) { // WARN: ascending, might be reversing
                 if (newHead == null) {
                     newHead = firstPoint;
                     cur = firstPoint;
@@ -174,7 +184,7 @@ public class List {
     }
 
     // add node to the tail of the list – basic method
-    public void addNode(ListNode node) {
+    public void addNode(ListNode node) { // WARN: wait for test
         ListNode tempNode = headListNode;
         while (tempNode.next != null) { // find the last node
             tempNode = tempNode.next;
@@ -196,18 +206,18 @@ public class List {
         ListNode tempNode = headListNode;
         ListNode holder = tempNode.next; // tempNode is the previous node, holder is the following node
         switch (sorted()) {
-            case 1: // ascending
-                while (!(node.val < tempNode.val || node.val > holder.val)) {
-                    tempNode.next = node;
-                    node.next = holder;
-                }
-                break;
-            case -1: // descending
-                while (!(node.val > tempNode.val || node.val < holder.val)) {
-                    tempNode.next = node;
-                    node.next = holder;
-                }
-                break;
+        case 1: // ascending
+            while (!(node.val < tempNode.val || node.val > holder.val)) {
+                tempNode.next = node;
+                node.next = holder;
+            }
+            break;
+        case -1: // descending
+            while (!(node.val > tempNode.val || node.val < holder.val)) {
+                tempNode.next = node;
+                node.next = holder;
+            }
+            break;
         }
     }
 
@@ -229,16 +239,16 @@ public class List {
 
         // determine that if the list become unsorted
         switch (sorted()) {
-            case 0:
-                break;
-            case 1:
-                if (tempNode.val > node.val || node.val > holder.val)
-                    sorted = 0;
-                break;
-            case -1:
-                if (tempNode.val < node.val || node.val < holder.val)
-                    sorted = 0;
-                break;
+        case 0:
+            break;
+        case 1:
+            if (tempNode.val > node.val || node.val > holder.val)
+                sorted = 0;
+            break;
+        case -1:
+            if (tempNode.val < node.val || node.val < holder.val)
+                sorted = 0;
+            break;
         }
 
         return true;
@@ -261,7 +271,7 @@ public class List {
     // delete node whose “val” equals to value, return true if succeeded, false if
     // failed
     public boolean deleteNode(int value) {
-        removeElements(headListNode, value);
+        return removeElements(headListNode, value);
     }
 
     public boolean removeElements(ListNode head, int val) {
@@ -278,10 +288,15 @@ public class List {
         while (true) {
             if (head.next == null) { // note: 1 node condition
                 if (head.val == val) {
-                    // TODO: add sth here
-                    return true;
+                    ListNode newHead = head.next;
+                    head.next = null;
+                    head = null;
+                    headListNode = newHead;
+                    isDeleted = true;
+                    break;
                 } else {
-                    return false;
+                    isDeleted = false;
+                    break;
                 }
             }
             if (cur.next == null) {
@@ -292,33 +307,48 @@ public class List {
                 head.next = null;
                 head = null;
                 head = cur;
+                isDeleted = true;
                 continue;
             }
             if (cur.next.val == val) {
                 ListNode deleteNode = cur.next;
                 cur.next = deleteNode.next;
                 deleteNode = null;
+                isDeleted = true;
             } else {
                 cur = cur.next;
             }
         }
-        return head;
+        return isDeleted;
     }
 
     // delete duplicated nodes from unsorted list
     public void deleteDuplicates() {
-
-
+//TODO: deep copy
     }
 
     // return the value of the k-th node from the bottom
     // note: k start from 1
     public int kthToLast(int k) {
-        ListNode cur = headListNode;
-        for (int i = 0; i < k - 1; i++) {
-            cur = cur.next;
+        if (headListNode.next == null) { // only one node
+            if (k == 1) {
+                return headListNode.val;
+            }
         }
-        return cur.val;
+        ListNode prev = headListNode;
+        ListNode foll = headListNode;
+        for (int i = 0; i < k; i++) {
+            foll = foll.next; // let there be a space of k between two pointers
+        }
+
+        while (true) {
+            if (foll == null) {
+                return prev.val;
+            } else {
+                prev = prev.next;
+                foll = foll.next;
+            }
+        }
     }
 
     // return the sum of the linked list
@@ -334,7 +364,7 @@ public class List {
 
     // merge two sorted lists and keep new list still sorted
     public void mergeSortedList(List listToMerge) {
-        merge(this.headListNode, listToMerge.headListNode);
+        merge(this.headListNode, listToMerge.headListNode); // WARN: hope the merge work here
     }
 
     /*
