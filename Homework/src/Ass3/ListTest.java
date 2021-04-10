@@ -1,3 +1,4 @@
+package Ass3;
 
 import org.junit.Test;
 
@@ -25,7 +26,7 @@ public class ListTest {
         list1.addNode(0,node3);
         ListNode node4 = new ListNode(7);
         list1.addNode(3,node4);
-        //System.out.println(list1);
+        System.out.println(list1);
 //        "[9, 11, 8, 7]"
         assertEquals(35, list1.sum());
         assertEquals(4, list1.size());

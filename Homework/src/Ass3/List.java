@@ -1,4 +1,4 @@
-// package Ass3;
+package Ass3;
 
 public class List {
     public static void main(String[] args) { // WARN: delete this test method at last
@@ -110,10 +110,12 @@ public class List {
             if (firstPoint == null) {
                 assert cur != null;
                 cur.next = secondPoint; // the left nodes of the next sublist are sorted
+                headListNode = newHead;
                 return newHead;
             } else if (secondPoint == null) {
                 assert cur != null;
                 cur.next = firstPoint;
+                headListNode = newHead;
                 return newHead;
             }
 
@@ -147,13 +149,15 @@ public class List {
     // attribute “sorted” should be changed if the list is sorted before
     public void reverse() {
         reverseList(headListNode);
-        this.sorted = (-1) * sorted;
+        if (sorted != 0) {
+            this.sorted = (-1) * sorted;
+        }
     }
 
-    public ListNode reverseList(ListNode head) {
-        if (head == null || head.next == null) {
-            return head;
-        }
+    public void reverseList(ListNode head) {
+//        if (head == null || head.next == null) {
+//            return head;
+//        }
 
         ListNode prev = head; // hold the pervious node
         ListNode holder = head.next.next; // cut the relationship with the next node
@@ -180,7 +184,7 @@ public class List {
                 holder = holder.next;
             }
         }
-        return prev;
+        headListNode = prev;
     }
 
     // add node to the tail of the list – basic method
@@ -195,6 +199,7 @@ public class List {
         if ((sorted() == 1 && tempNode.val > node.val) || (sorted() == -1 && tempNode.val < node.val)) {
             sorted = 0;
         }
+        this.size++;
     }
 
     // add node to sorted list and keep list still sorted
@@ -206,19 +211,38 @@ public class List {
         ListNode tempNode = headListNode;
         ListNode holder = tempNode.next; // tempNode is the previous node, holder is the following node
         switch (sorted()) {
-        case 1: // ascending
-            while (!(node.val < tempNode.val || node.val > holder.val)) {
-                tempNode.next = node;
-                node.next = holder;
-            }
-            break;
-        case -1: // descending
-            while (!(node.val > tempNode.val || node.val < holder.val)) {
-                tempNode.next = node;
-                node.next = holder;
-            }
-            break;
+            case 1: // ascending
+                while (true) {
+                    if (holder == null) {
+                        tempNode.next = node;
+                        break;
+                    }
+                    if (node.val >= tempNode.val && node.val < holder.val) {
+                        tempNode.next = node;
+                        node.next = holder;
+                        break;
+                    }
+                    tempNode = holder;
+                    holder = holder.next;
+                }
+                break;
+            case -1: // descending
+                while (true) {
+                    if (holder == null) {
+                        tempNode.next = node;
+                        break;
+                    }
+                    if (node.val <= tempNode.val && node.val > holder.val) {
+                        tempNode.next = node;
+                        node.next = holder;
+                        break;
+                    }
+                    tempNode = holder;
+                    holder = holder.next;
+                }
+                break;
         }
+        this.size++;
     }
 
     // add node to position of index, which is from 0;
@@ -226,6 +250,13 @@ public class List {
     public boolean addNode(int index, ListNode node) {
         if (index < 0 && size() <= index) {
             return false;
+        }
+
+        if (index == 0) {
+            node.next = headListNode;
+            headListNode = node;
+            size++;
+            return true;
         }
 
         ListNode tempNode = headListNode;
@@ -239,18 +270,18 @@ public class List {
 
         // determine that if the list become unsorted
         switch (sorted()) {
-        case 0:
-            break;
-        case 1:
-            if (tempNode.val > node.val || node.val > holder.val)
-                sorted = 0;
-            break;
-        case -1:
-            if (tempNode.val < node.val || node.val < holder.val)
-                sorted = 0;
-            break;
+            case 0:
+                break;
+            case 1:
+                if (tempNode.val > node.val || node.val > holder.val)
+                    sorted = 0;
+                break;
+            case -1:
+                if (tempNode.val < node.val || node.val < holder.val)
+                    sorted = 0;
+                break;
         }
-
+        size++;
         return true;
     }
 
@@ -263,8 +294,9 @@ public class List {
             if (status == 0) {
                 prevNode = judgingNode;
                 judgingNode = judgingNode.next;
-            } else
+            } else {
                 return status == 1;
+            }
         }
     }
 
@@ -278,21 +310,17 @@ public class List {
         if (head == null) {
             return false;
         }
-
         boolean isDeleted = false;
-
-        // TODO: change the return value
-
         ListNode cur = head;
-
         while (true) {
             if (head.next == null) { // note: 1 node condition
                 if (head.val == val) {
-                    ListNode newHead = head.next;
+                    ListNode newHead = null;
                     head.next = null;
                     head = null;
-                    headListNode = newHead;
+                    headListNode = null;
                     isDeleted = true;
+                    size--;
                     break;
                 } else {
                     isDeleted = false;
@@ -306,8 +334,10 @@ public class List {
                 cur = cur.next;
                 head.next = null;
                 head = null;
+                headListNode = cur;
                 head = cur;
                 isDeleted = true;
+                size--;
                 continue;
             }
             if (cur.next.val == val) {
@@ -315,6 +345,7 @@ public class List {
                 cur.next = deleteNode.next;
                 deleteNode = null;
                 isDeleted = true;
+                size--;
             } else {
                 cur = cur.next;
             }
@@ -323,8 +354,28 @@ public class List {
     }
 
     // delete duplicated nodes from unsorted list
+    // tired, use brute force to solve this...
     public void deleteDuplicates() {
-//TODO: deep copy
+        ListNode cur = headListNode;
+        while (cur != null) {
+            ListNode temp = cur.next;
+            ListNode holder = cur;
+            while (temp != null) {
+                if (cur.val == temp.val) {
+                    ListNode foll = temp.next;
+                    temp.next = null;
+                    temp = null;
+                    holder.next = foll;
+                    temp = foll;
+                    size--;
+                    continue;
+                }
+
+                temp = temp.next;
+                holder = holder.next;
+            }
+            cur = cur.next;
+        }
     }
 
     // return the value of the k-th node from the bottom
@@ -365,14 +416,16 @@ public class List {
     // merge two sorted lists and keep new list still sorted
     public void mergeSortedList(List listToMerge) {
         merge(this.headListNode, listToMerge.headListNode); // WARN: hope the merge work here
+        size += listToMerge.size;
     }
 
     /*
-     * **self-method** my thought is to consider three conditions 1.<null, notNull>
-     * the node to delete is the head 2.<notNull, judgingNode.next == null> return
-     * null 3.<notNull, notNull> delete it
+     * **self-method** my thought is to consider three conditions
+     * 1.<null, notNull> the node to delete is the head
+     * 2.<notNull, judgingNode.next == null> return null
+     * 3.<notNull, notNull> delete it
      *
-     * returned value: 1-true 0-false -1 stop loop 2-wrong
+     * returned value: 1-true 0-false -1 stop loop
      */
     public int delete(ListNode prevNode, ListNode judgingNode, ListNode targetNode) {
         if (prevNode == null) { // this is for the 1st condition
@@ -380,6 +433,7 @@ public class List {
                 headListNode = judgingNode.next;
                 targetNode = null;
                 judgingNode = null;
+                size--;
                 return 1;
             } else {
                 return 0;
@@ -389,6 +443,7 @@ public class List {
                 prevNode.next = null;
                 targetNode = null;
                 judgingNode = null;
+                size--;
                 return 1;
             } else {
                 return -1;
@@ -398,6 +453,7 @@ public class List {
                 prevNode.next = judgingNode.next;
                 judgingNode = null;
                 targetNode = null;
+                size--;
                 return 1;
             } else {
                 return 0;
