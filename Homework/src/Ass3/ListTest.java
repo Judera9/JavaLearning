@@ -12,7 +12,7 @@ public class ListTest {
     List list1;
 
     @Before
-    public void creatList1(){
+    public void creatList1() {
         ListNode node = new ListNode(11);
         list1 = new List(node);
         //System.out.println(list1);
@@ -20,12 +20,43 @@ public class ListTest {
 
     @Test(timeout = 1000)
     public void test1() {
+        list1.addNode(null);
+        assertFalse(list1.addNode(-1, new ListNode(10)));
+        assertTrue(list1.addNode(0, new ListNode(10)));
+        assertTrue(list1.deleteNode(10));
+        assertTrue(list1.deleteNode(11));
+        assertFalse(list1.addNode(1, new ListNode(2)));
+        list1.addNode(0, new ListNode(-1));
+        list1.addNode(1, new ListNode(-1));
+//        "[-1, -1]"
+        list1.deleteDuplicates();
+        list1.reverse();
+        list1.deleteNode(-1);
+//        "[]"
+        list1.sort();
+        assertEquals(1, list1.sorted());
+        assertTrue(list1.addNode(0, new ListNode(11)));
+        list1.addNodeSorted(null);
+        assertEquals(1, list1.sorted());
+        list1.addNodeSorted(new ListNode(-1));
+        list1.reverse();
+        assertEquals(-1, list1.sorted());
+//        "[11 -1]"
+        list1.deleteNode(-1);
+        list1.addNode(new ListNode(12));
+        assertEquals(0, list1.sorted());
+        list1.deleteNode(list1.headListNode.next);
+        assertEquals(list1.kthToLast(1), 11); // no consider
+        list1.deleteDuplicates();
+//        "[11]"
         ListNode node2 = new ListNode(8);
         ListNode node3 = new ListNode(9);
         list1.addNode(node2);
-        list1.addNode(0,node3);
+        assertTrue(list1.addNode(2, new ListNode(10)));
+        list1.deleteNode(node2.next);
+        list1.addNode(0, node3);
         ListNode node4 = new ListNode(7);
-        list1.addNode(3,node4);
+        list1.addNode(3, node4);
         System.out.println(list1);
 //        "[9, 11, 8, 7]"
         assertEquals(35, list1.sum());
@@ -33,14 +64,26 @@ public class ListTest {
         list1.reverse();
         int[] temp = {9, 11, 8, 7};
         for (int i = 1; i <= 4; i++) {
-            assertEquals(temp[i-1], list1.kthToLast(i));
+            assertEquals(temp[i - 1], list1.kthToLast(i));
         }
 //        "[7, 8, 11, 9]"
         Arrays.sort(temp);
         list1.sort();
+//        "[7, 8, 9, 11]"
+        list1.addNodeSorted(new ListNode(0));
+//        "[0, 7, 8, 9, 11]"
+        list1.deleteNode(0);
+//        "[7, 8, 9, 11]"
+        assertEquals(1, list1.sorted());
+        assertTrue(list1.addNode(1, new ListNode(99)));
+        assertEquals(0, list1.sorted());
+        list1.sort();
+        list1.sort();
+        assertEquals(1, list1.sorted());
+        assertTrue(list1.deleteNode(99));
         assertEquals(1, list1.sorted());
         for (int i = 1; i <= 4; i++) {
-            assertEquals(temp[4-i], list1.kthToLast(i));
+            assertEquals(temp[4 - i], list1.kthToLast(i));
         }
 //        "[7, 8, 9, 11]"
         ListNode node5 = new ListNode(10);
@@ -52,7 +95,7 @@ public class ListTest {
         assertEquals(4, list1.size());
         assertTrue(ok);
         for (int i = 1; i <= 4; i++) {
-            assertEquals(temp[4-i], list1.kthToLast(i));
+            assertEquals(temp[4 - i], list1.kthToLast(i));
         }
 //        "[7, 8, 9, 11]"
 
@@ -98,7 +141,7 @@ public class ListTest {
 
         ListNode node4 = new ListNode(8);
         ListNode node5 = new ListNode(7);
-        list1.addNode(1,node4);
+        list1.addNode(1, node4);
         assertEquals(8, list1.kthToLast(4));
 //        "[8, 8, 4, 5]"
 
@@ -112,7 +155,7 @@ public class ListTest {
         assertEquals(-1, list1.sorted());
         int[] temp = {4, 5, 8, 8};
         for (int i = 1; i <= 4; i++) {
-            assertEquals(temp[i-1], list1.kthToLast(i));
+            assertEquals(temp[i - 1], list1.kthToLast(i));
         }
 
         list1.addNodeSorted(node5);
@@ -135,7 +178,7 @@ public class ListTest {
 //        "[8, 7, 5, 4]"
         temp[2] = 7;
         for (int i = 1; i <= 4; i++) {
-            assertEquals(temp[i-1], list1.kthToLast(i));
+            assertEquals(temp[i - 1], list1.kthToLast(i));
         }
         assertEquals(-1, list1.sorted());
 

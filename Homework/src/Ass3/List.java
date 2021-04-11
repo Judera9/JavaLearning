@@ -1,23 +1,6 @@
-package Ass3;
+//package Ass3;
 
 public class List {
-    public static void main(String[] args) { // WARN: delete this test method at last
-        // test
-        ListNode node1 = new ListNode(1);
-        List list = new List(node1);
-        ListNode node2 = new ListNode(2);
-        node1.next = node2;
-        // ListNode node3 = new ListNode(3);
-        // node2.next = node3;
-        // ListNode node4 = new ListNode(4, node3);
-        // ListNode nullNode = new ListNode();
-        // System.out.println(list.kthToLast(1));
-    }
-
-    /*
-     * Given attributes and methods
-     */
-
     public ListNode headListNode;
     private int size;
     private int sorted; // note: need to check sorted carefully
@@ -148,6 +131,14 @@ public class List {
     // reverse the order of nodes of list
     // attribute “sorted” should be changed if the list is sorted before
     public void reverse() {
+        if (headListNode == null){
+            return;
+        }
+        if (headListNode.next == null){
+            sorted = 1; // default to be ascending ?
+            return;
+        }
+
         reverseList(headListNode);
         if (sorted != 0) {
             this.sorted = (-1) * sorted;
@@ -189,6 +180,10 @@ public class List {
 
     // add node to the tail of the list – basic method
     public void addNode(ListNode node) { // WARN: wait for test
+        if (node == null){
+            return;
+        }
+
         ListNode tempNode = headListNode;
         while (tempNode.next != null) { // find the last node
             tempNode = tempNode.next;
@@ -205,6 +200,10 @@ public class List {
     // add node to sorted list and keep list still sorted
     // node should add to the position according to the value
     public void addNodeSorted(ListNode node) {
+        if (node == null){
+            return;
+        }
+
         if (sorted == 0)
             System.out.println("List not sorted, method run wrong!");
 
@@ -215,6 +214,11 @@ public class List {
                 while (true) {
                     if (holder == null) {
                         tempNode.next = node;
+                        break;
+                    }
+                    if (tempNode == headListNode && node.val <= tempNode.val){
+                        node.next = tempNode;
+                        headListNode = node;
                         break;
                     }
                     if (node.val >= tempNode.val && node.val < holder.val) {
@@ -230,6 +234,11 @@ public class List {
                 while (true) {
                     if (holder == null) {
                         tempNode.next = node;
+                        break;
+                    }
+                    if (tempNode == headListNode && node.val >= tempNode.val){
+                        node.next = tempNode;
+                        headListNode = node;
                         break;
                     }
                     if (node.val <= tempNode.val && node.val > holder.val) {
@@ -248,7 +257,11 @@ public class List {
     // add node to position of index, which is from 0;
     // return true if succeeded, false if failed
     public boolean addNode(int index, ListNode node) {
-        if (index < 0 && size() <= index) {
+        if (node == null){
+            return false;
+        }
+
+        if (index < 0 || size() < index) {
             return false;
         }
 
@@ -323,7 +336,7 @@ public class List {
                     size--;
                     break;
                 } else {
-                    isDeleted = false;
+//                    isDeleted = false;
                     break;
                 }
             }
