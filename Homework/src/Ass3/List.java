@@ -1,4 +1,4 @@
-//package Ass3;
+package Ass3;
 
 public class List {
     public ListNode headListNode;
@@ -131,10 +131,10 @@ public class List {
     // reverse the order of nodes of list
     // attribute “sorted” should be changed if the list is sorted before
     public void reverse() {
-        if (headListNode == null){
+        if (headListNode == null) {
             return;
         }
-        if (headListNode.next == null){
+        if (headListNode.next == null) {
             sorted = 1; // default to be ascending ?
             return;
         }
@@ -180,7 +180,7 @@ public class List {
 
     // add node to the tail of the list – basic method
     public void addNode(ListNode node) { // WARN: wait for test
-        if (node == null){
+        if (node == null) {
             return;
         }
 
@@ -200,7 +200,7 @@ public class List {
     // add node to sorted list and keep list still sorted
     // node should add to the position according to the value
     public void addNodeSorted(ListNode node) {
-        if (node == null){
+        if (node == null) {
             return;
         }
 
@@ -216,7 +216,7 @@ public class List {
                         tempNode.next = node;
                         break;
                     }
-                    if (tempNode == headListNode && node.val <= tempNode.val){
+                    if (tempNode == headListNode && node.val <= tempNode.val) {
                         node.next = tempNode;
                         headListNode = node;
                         break;
@@ -236,7 +236,7 @@ public class List {
                         tempNode.next = node;
                         break;
                     }
-                    if (tempNode == headListNode && node.val >= tempNode.val){
+                    if (tempNode == headListNode && node.val >= tempNode.val) {
                         node.next = tempNode;
                         headListNode = node;
                         break;
@@ -257,7 +257,7 @@ public class List {
     // add node to position of index, which is from 0;
     // return true if succeeded, false if failed
     public boolean addNode(int index, ListNode node) {
-        if (node == null){
+        if (node == null) {
             return false;
         }
 
@@ -394,6 +394,7 @@ public class List {
     // return the value of the k-th node from the bottom
     // note: k start from 1
     public int kthToLast(int k) {
+        assert headListNode != null;
         if (headListNode.next == null) { // only one node
             if (k == 1) {
                 return headListNode.val;

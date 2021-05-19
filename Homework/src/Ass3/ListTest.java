@@ -25,6 +25,7 @@ public class ListTest {
         assertTrue(list1.addNode(0, new ListNode(10)));
         assertTrue(list1.deleteNode(10));
         assertTrue(list1.deleteNode(11));
+//        list1.kthToLast(0);
         assertFalse(list1.addNode(1, new ListNode(2)));
         list1.addNode(0, new ListNode(-1));
         list1.addNode(1, new ListNode(-1));
@@ -125,6 +126,18 @@ public class ListTest {
         list1.mergeSortedList(list2);
 //        "[1, 8, 9, 9]"
         assertEquals(1, list1.sorted());
+        list1.addNode(0, new ListNode(-1));
+        assertEquals(1, list1.sorted());
+        list1.addNode(5, new ListNode(-1));
+        assertEquals(0, list1.sorted());
+//        "[-1, 1, 8, 9, 9, -1]"
+        temp = new int[]{-1, 1, 8, 9, 9, -1};
+        for (int i = 1; i <= temp.length; i++) {
+            assertEquals(temp[temp.length - i], list1.kthToLast(i));
+        }
+        list1.reverse();
+        assertEquals(0, list1.sorted());
+
     }
 
     @Test(timeout = 1000)
